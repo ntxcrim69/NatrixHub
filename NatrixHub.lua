@@ -16,6 +16,7 @@ local BG_IMAGE_ID    = "rbxassetid://134736124666311"
 local BG_IMAGE_COLOR = Color3.fromRGB(85, 85, 85)
 local WINDOW_W       = 300
 local WINDOW_H       = 160
+local BASE_URL       = "https://raw.githubusercontent.com/ntxcrim69/NatrixST/refs/heads/main/"
 
 -- Design system.
 local THEME = {
@@ -29,13 +30,9 @@ local THEME = {
     Danger          = Color3.fromRGB(255, 55,  55),
 }
 
--- Game registry: [PlaceId] = { name, scriptUrl }
+-- Game registry: [PlaceId] = { name, file }
 local GAMES = {
-    [4819740928] = {
-        name      = "Creatures of Sonaria",
-        scriptUrl = "https://raw.githubusercontent.com/ntxcrim69/NatrixLibrary/refs/heads/main/Natrix_Creatures_of_Sonaria.lua",
-    },
-    -- [PlaceId] = { name = "Game Name", scriptUrl = "https://..." },
+    [5233782396]     = { name = "Creatures of Sonaria",    file = "CreaturesOfSonaria.lua" },
 }
 
 -- ─── Helpers ────────────────────────────────────────────────────────────────
@@ -328,7 +325,7 @@ task.spawn(function()
 
     local scriptSource
     local ok, err = pcall(function()
-        scriptSource = request({ Url = gameInfo.scriptUrl, Method = "GET" }).Body
+        scriptSource = request({ Url = BASE_URL .. gameInfo.file, Method = "GET" }).Body
     end)
 
     if not ok or not scriptSource or #scriptSource < 10 then
