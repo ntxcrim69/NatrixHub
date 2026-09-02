@@ -33,6 +33,7 @@ local THEME = {
 -- Game registry: [PlaceId] = { name, file }
 local GAMES = {
     [5233782396]     = { name = "Creatures of Sonaria",    file = "CreaturesOfSonaria.lua" },
+    [70970763145070] = { name = "Choose Your Power",    file = "ChooseYourPower.lua" },
 }
 
 -- ─── Helpers ────────────────────────────────────────────────────────────────
